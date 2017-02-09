@@ -35,6 +35,7 @@
         </select>
     </fieldset>
     <fieldset>
+        <!-- added "required" for validation -->
         <label for="city">City: *</label>
         <input name="city" id="city" required placeholder="City Name" />
     </fieldset>

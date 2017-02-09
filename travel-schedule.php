@@ -9,7 +9,7 @@
 <body>
 
 <?php
-
+// connect to my azure database
 $conn = new PDO('mysql:host=ca-cdbr-azure-central-a.cloudapp.net;dbname=comp1006jessecannondatabase', 'bf3c946f4d66ff', '1d953141');
 
 $sql ="SELECT firstname, lastname, email, phonenumber, country, city, weather, traveldate FROM users";
@@ -18,6 +18,7 @@ $cmd = $conn->prepare($sql);
 $cmd->execute();
 $users = $cmd->fetchALL(); 
 
+// create table for the travel schedule to appear on
 echo '<table class="table table-striped table-hover"><tr><th>FirstName</th><th>LastName</th><th>Email</th><th>PhoneNumber</th><th>Country</th><th>City</th><th>Weather</th><th>TravelDate</th></tr>';
 
 foreach ($users as $user) {
