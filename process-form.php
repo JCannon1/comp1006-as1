@@ -7,6 +7,8 @@
 <body>
 
 <?php
+
+try {
 // create 8 variables and store the form inputs in them
 $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
@@ -31,6 +33,14 @@ echo 'traveldate: ' . $traveldate . '<br />';
 
 ?>
 
+<?php
+
+}
+catch (exception $e) {
+    mail('jessecannon1@hotmail.com', 'Proccess Form Page Error', $e);
+    header('location:error.php');
+}
+?>
 
 </body>
 </html>

@@ -16,6 +16,7 @@ $city = $_POST['city'];
 $weather = $_POST['weather'];
 $traveldate = $_POST['traveldate'];
 
+try {
 // connect to my azure database
 $conn = new PDO('mysql:host=ca-cdbr-azure-central-a.cloudapp.net;dbname=comp1006jessecannondatabase', 'bf3c946f4d66ff', '1d953141');
 
@@ -38,6 +39,15 @@ $cmd->execute();
 $conn = null;
 
 echo 'New Travel Location Booked Successfully';
+?>
+
+<?php
+
+}
+catch (exception $e) {
+    mail('jessecannon1@hotmail.com', 'Travel Save Page Error', $e);
+    header('location:error.php');
+}
 ?>
 
 </body>

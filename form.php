@@ -48,7 +48,16 @@
         <input name="traveldate" id="traveldate" required type="date" placeholder="Date of Travel" />
     </fieldset>
     <button>Save</button>
-</form>
+</form> 
+
+<?php
+try {
+}
+catch (exception $e) {
+    mail('jessecannon1@hotmail.com', 'Form Page Error', $e);
+    header('location:error.php');
+}
+?>
 
 </body>
 </html>

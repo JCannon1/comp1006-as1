@@ -9,6 +9,8 @@
 <body>
 
 <?php
+
+try {
 // connect to my azure database
 $conn = new PDO('mysql:host=ca-cdbr-azure-central-a.cloudapp.net;dbname=comp1006jessecannondatabase', 'bf3c946f4d66ff', '1d953141');
 
@@ -39,6 +41,15 @@ $conn = null;
 <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+
+<?php
+
+}
+catch (exception $e) {
+    mail('jessecannon1@hotmail.com', 'Travel Schedule Error', $e);
+    header('location:error.php');
+}
+?>
 
 </body>
 </html>
